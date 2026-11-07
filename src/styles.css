@@ -19,20 +19,18 @@ img {
 }
 
 #farts {
-  max-width: min(1180px, calc(100% - 2rem));
+  max-width: min(1400px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
 .rank-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
   gap: clamp(1rem, 2vw, 1.5rem);
 }
 
 .rank-card {
   position: relative;
-  width: min(100%, 70ch);
+  width: min(100%, 56rem);
   overflow: hidden;
   border-radius: clamp(1rem, 2vw, 1.75rem);
   border: 1px solid rgba(148, 163, 184, 0.2);
@@ -43,24 +41,23 @@ img {
 }
 
 .rank-card:nth-child(odd) {
-  align-self: flex-start;
+  justify-self: start;
   transform: rotate(-0.8deg);
 }
 
 .rank-card:nth-child(even) {
-  align-self: flex-end;
-  margin-left: clamp(0.75rem, 4vw, 4rem);
+  justify-self: end;
+  width: min(100%, 62rem);
   transform: rotate(0.8deg);
 }
 
 .rank-card:nth-child(3n) {
-  width: min(100%, 76ch);
+  width: min(100%, 66rem);
 }
 
 .rank-card--top {
-  width: min(100%, 82ch);
-  align-self: center;
-  margin-left: 0;
+  width: min(100%, 70rem);
+  justify-self: center;
   transform: rotate(1.1deg);
   border-color: rgba(110, 231, 183, 0.55);
   background: rgba(5, 46, 22, 0.44);
@@ -130,12 +127,13 @@ img {
   .rank-card,
   .rank-card--top {
     width: 100%;
+    justify-self: stretch;
     margin-left: 0;
   }
 }
 
-@media (min-width: 640px) {
-  .rank-image {
-    height: 360px;
+@media (min-width: 768px) {
+  .rank-card:nth-child(even) {
+    margin-right: clamp(0.5rem, 2vw, 2rem);
   }
 }
